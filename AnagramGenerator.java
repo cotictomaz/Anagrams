@@ -4,6 +4,15 @@ import java.math.BigInteger;
 
 public class AnagramGenerator {
 
+    public static String[] computeAllAnagrams(String word) {
+        BigInteger permutations = factorial(word.length());
+        int numberOfAnagrams = permutations.intValue();
+        int[] counter = { numberOfAnagrams - 1 };
+        String[] anagrams = new String[numberOfAnagrams];
+        computeAnagramsAusiliary(word, "", counter, anagrams);
+        return anagrams;
+    }
+
     public static String[] computeAnagrams(String word, int n) {
         int numberOfAnagrams = assignNumberOfAnagrams(word, n);
         int[] counter = { numberOfAnagrams - 1 };
