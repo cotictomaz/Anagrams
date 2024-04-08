@@ -6,11 +6,18 @@ public class Anagrams {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         //int n = Integer.parseInt(args[0]);
-        //int n = 15;
+        int n = 15;
         System.out.println("Insert the word of which you want to get the anagrams: ");
         String word = scanner.nextLine();
-        //String[] anagrams = AnagramGenerator.computeAnagrams(word, n);
-        String[] anagrams = AnagramGenerator.computeAllAnagrams(word);
+        System.out.println("Do you want all anagrams[Y] or only n [N]? ");
+        String ans = scanner.nextLine();
+        String[] anagrams;
+        if(ans.equals("y")){
+            anagrams = AnagramGenerator.computeAllAnagrams(word);
+        }
+        else{
+            anagrams = AnagramGenerator.computeAnagrams(word, n);
+        }
         scanner.close();
         for (String anagram : anagrams) {
             System.out.println(anagram);
